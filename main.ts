@@ -21,10 +21,9 @@ function printScore(playerPoints: [number, number]): string {
       player1Points - player2Points === 1 ||
       player1Points - player2Points === -1
     ) {
-      return `advantage ${decideGameWinner({
-        player1: player1Points,
-        player2: player2Points,
-      })}`;
+      return `advantage ${
+        player1Points > player2Points ? 'player 1' : 'player 2'
+      }`;
     }
   } else {
     if (player1Points !== player2Points) {
@@ -33,10 +32,3 @@ function printScore(playerPoints: [number, number]): string {
     return `${points[player2Points]} - ${points[player2Points]}`;
   }
 }
-const player1Points = 2;
-const player2Points = 4;
-
-// when
-const score = printScore([player1Points, player2Points]);
-
-console.log(score);
